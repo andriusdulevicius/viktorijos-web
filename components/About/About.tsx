@@ -1,13 +1,10 @@
-import React from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import Image from "next/image";
-import quote from "./quote.svg";
+import React from 'react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
+import Image from 'next/image';
+import quote from './quote.svg';
+import aboutMeImg from '../../assets/aboutMe.jpeg';
 
-type Props = {
-  data: any;
-};
-
-const About = (props: Props) => {
+const About = () => {
   const x = useMotionValue(100);
   const y = useMotionValue(100);
 
@@ -25,6 +22,9 @@ const About = (props: Props) => {
     y.set(100);
   }
 
+  const aboutText =
+    'Hello there! My name is Viktorija. I am a brand manager, with quite a lot of knowledge how to boost your business with a help of social media. Check out my page, and if any of my services interests you, get in touch!';
+
   return (
     // test
     <div className="w-screen h-screen ">
@@ -33,64 +33,18 @@ const About = (props: Props) => {
           About
         </h3>
 
-        <motion.div
-          initial={{
-            y: 100,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-          }}
-          transition={{
-            duration: 1,
-          }}
-        >
-          <motion.div
-            style={{
-              display: "flex",
-              placeItems: "center",
-              placeContent: "center",
-              perspective: 1000,
-            }}
-            onMouseMove={handleMouse}
-            onMouseLeave={mouseLeave}
-          >
-            <motion.div
-              style={{
-                rotateX: rotateX,
-                rotateY: rotateY,
-              }}
-              className="mt-28 flex h-60 w-64 items-start justify-center md:h-96 md:w-96 relative "
-            >
-              <Image
-                src={props.data.aboutImage}
-                width={1000}
-                height={1000}
-                priority
-                quality={100}
-                alt="Sunil's about image"
-                className="-mb-10 h-64 w-64 sm:drop-shadow-[0_0px_20px_#ffffff0f] flex-shrink-0 rounded-full object-cover text-[#ffffff5d] transition duration-700  ease-in-out hover:scale-125 hover:drop-shadow-[0_0px_35px_#ffffff2f] md:mb-0 md:h-96 md:w-96 md:rounded-lg xl:scale-110
+        <Image
+          src={aboutMeImg}
+          width={1000}
+          height={1000}
+          priority
+          quality={100}
+          alt="Viktorija's about image"
+          className="-mb-10 h-64 w-64 sm:drop-shadow-[0_0px_20px_#ffffff0f] flex-shrink-0 rounded-full object-cover text-[#ffffff5d] transition duration-700  ease-in-out hover:scale-125 hover:drop-shadow-[0_0px_35px_#ffffff2f] md:mb-0 md:h-96 md:w-96 md:rounded-lg xl:scale-110
                 "
-                
-              />
-
-              {/* hover image */}
-              <Image
-                src={props.data.aboutHoverImage}
-                width={2464}
-                height={2464}
-                priority
-                quality={100}
-                alt="Sunil's about image"
-                className="absolute -mb-10  h-64 w-64 sm:drop-shadow-[0_0px_20px_#ffffff0f] flex-shrink-0 rounded-full object-cover text-[#ffffff5d] transition duration-700  ease-in-out hover:scale-125 hover:drop-shadow-[0_0px_35px_#ffffff2f] md:mb-0 md:h-96 md:w-96 md:rounded-lg xl:scale-110"
-              />
-            </motion.div>
-          </motion.div>
-        </motion.div>
+        />
 
         <div className={`space-y-6 px-0 md:px-3 flex items-center`}>
-          {/* <h4 className="text-2xl font-semibold text-[#F7AB0A] sm:text-4xl xl:mt-20">{`Here's Something `}</h4> */}
           <motion.p
             initial={{
               x: 100,
@@ -123,13 +77,13 @@ const About = (props: Props) => {
               priority
             />
 
-            {props.data.aboutText.split(" ").map((word: any, key: any) => {
+            {aboutText.split(' ').map((word: any, key: any) => {
               return (
                 <span
-                  className="hover:text-[#F7AB0A] transition-all ease-in-out hover:scale-105 tracking-wide"
+                  className="hover:text-[#F5C8D1] transition-all ease-in-out hover:scale-105 tracking-wide"
                   key={key}
                 >
-                  {word}{" "}
+                  {word}{' '}
                 </span>
               );
             })}

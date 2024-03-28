@@ -1,23 +1,32 @@
 // @ts-nocheck
 
-import React from "react";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
-type Props = {
-  data: any;
-};
-
-function Skills(props: Props) {
-  // const [skillName,skillSet]=useState("")
+const SkillsSection = () => {
+  // const [skillName,Sectionet]=useState("")
   const [skillName, setSkill] = useState<string>();
 
-  useEffect(() => {
-    const nodes = [].slice.call(document.querySelectorAll("li"), 0);
+  const skillData = [
+    {
+      skillName: 'Canva',
+      imageName: '/',
+      proficiency: 5,
+    },
+    {
+      skillName: 'Facebook',
+      imageName: '/',
+      proficiency: 5,
+    },
+  ];
 
-    const directions = { 0: "top", 1: "right", 2: "bottom", 3: "left" };
-    const classNames = ["in", "out"]
+  useEffect(() => {
+    const nodes = [].slice.call(document.querySelectorAll('li'), 0);
+
+    const directions = { 0: 'top', 1: 'right', 2: 'bottom', 3: 'left' };
+    const classNames = ['in', 'out']
       .map((p) => Object.values(directions).map((d) => `${p}-${d}`))
       .reduce((a, b) => a.concat(b));
 
@@ -34,12 +43,12 @@ function Skills(props: Props) {
       constructor(element) {
         this.element = element;
 
-        this.element.addEventListener("mouseover", (ev) =>
-          this.update(ev, "in"),
+        this.element.addEventListener('mouseover', (ev) =>
+          this.update(ev, 'in')
         );
 
-        this.element.addEventListener("mouseout", (ev) =>
-          this.update(ev, "out"),
+        this.element.addEventListener('mouseout', (ev) =>
+          this.update(ev, 'out')
         );
       }
 
@@ -47,7 +56,7 @@ function Skills(props: Props) {
         this.element.classList.remove(...classNames);
 
         this.element.classList.add(
-          `${prefix}-${directions[getDirectionKey(ev, this.element)]}`,
+          `${prefix}-${directions[getDirectionKey(ev, this.element)]}`
         );
       }
     }
@@ -61,12 +70,12 @@ function Skills(props: Props) {
         Skills
       </h3>
       <h3 className="absolute top-36 uppercase tracking-[3px] text-gray-500 text-sm cursor-default ">
-        hover for proficiency
+        hover for proficiency 1-5
       </h3>
       <div className="  w-[90vw] h-[60vh] md:w-[40vw] flex justify-center items-center z-20">
         <div className={`container `}>
           <ul className={`scale-[70%] md:scale-100 `}>
-            {props.data.skillData.map((item: any, key: any) => {
+            {skillData.map((item: any, key: any) => {
               return (
                 <motion.li
                   key={key}
@@ -75,7 +84,7 @@ function Skills(props: Props) {
                     setSkill(item.skillName);
                   }}
                   onMouseLeave={() => {
-                    setSkill("");
+                    setSkill('');
                   }}
                   initial={{
                     x: key % 2 == 0 ? 100 : -100,
@@ -109,13 +118,13 @@ function Skills(props: Props) {
         </div>
       </div>
 
-      <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] skew-y-12 flex items-end justify-start xl:items-start  xl:justify-end ">
+      <div className="w-full absolute top-[30%] bg-[#F5C8D1]/10 left-0 h-[500px] skew-y-12 flex items-end justify-start xl:items-start  xl:justify-end ">
         <h3 className="w-[35vw] sm:w-[32vw] h-fit text-xl md:text-[7vh] md:text-5xl text-gray-500/50 uppercase p-4 pt-11 pb-6 tracking-[20px]  transition-all ease-in-out duration-150 animate-[bounce_2s_ease-in-out_infinite]">
           {skillName}
         </h3>
       </div>
     </div>
   );
-}
+};
 
-export default Skills;
+export default SkillsSection;

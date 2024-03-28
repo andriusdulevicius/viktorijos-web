@@ -1,15 +1,14 @@
-import React from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import React from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 // import required modules
-import { Pagination, Navigation } from "swiper/modules";
-
+import { Pagination, Navigation } from 'swiper/modules';
 
 type Props = {
   data: any;
@@ -34,10 +33,10 @@ const Projects = (props: Props) => {
           y: 0,
         }}
         transition={{
-          type: "spring",
+          type: 'spring',
           duration: 2,
         }}
-        className="relative w-full flex overflow-y-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-thumb-[#F7AB0A]/80 scrollbar-track-gray-500  scrollbar-thumb-rounded-full scrollbar-track-rounded-full "
+        className="relative w-full flex overflow-y-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-thumb-[#F5C8D1]/80 scrollbar-track-gray-500  scrollbar-thumb-rounded-full scrollbar-track-rounded-full "
       >
         <Swiper
           slidesPerView={1}
@@ -65,7 +64,7 @@ const Projects = (props: Props) => {
                       quality={100}
                     />
                     <div className="space-y-10 px-4 md:px-10 max-w-3xl text-center">
-                      <h4 className="text-4xl font-semibold tracking-wide flex flex-col cursor-default text-[#F7AB0A]/70">
+                      <h4 className="text-4xl font-semibold tracking-wide flex flex-col cursor-default text-[#F5C8D1]/70">
                         {item.projectName}
                       </h4>
                       <p className="text-lg text-justify cursor-default">
@@ -81,7 +80,7 @@ const Projects = (props: Props) => {
       </motion.div>
 
       {/* background line */}
-      {/* <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" /> */}
+      {/* <div className="w-full absolute top-[30%] bg-[#F5C8D1]/10 left-0 h-[500px] -skew-y-12" /> */}
     </div>
   );
 };

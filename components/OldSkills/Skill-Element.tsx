@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import React from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 type Props = {
   directionLeft?: boolean;
@@ -30,7 +30,7 @@ const Skill = ({ directionLeft, source, proficiency }: Props) => {
     >
       <Image
         src={source}
-        className=" border-gray-500 object-cover  h-16 w-16 md:w-20 md:h-20 xl:h-24 xl:w-24 rounded-full  filter group-hover:grayscale transition duration-300 ease-in-out shadow-2xl group-hover:drop-shadow-[0_0px_15px_#F7AB0A] border-2 "
+        className=" border-gray-500 object-cover  h-16 w-16 md:w-20 md:h-20 xl:h-24 xl:w-24 rounded-full  filter group-hover:grayscale transition duration-300 ease-in-out shadow-2xl group-hover:drop-shadow-[0_0px_15px_#F5C8D1] border-2 "
         alt="skill image"
         width={100}
         height={100}

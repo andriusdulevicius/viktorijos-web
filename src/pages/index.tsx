@@ -1,103 +1,83 @@
-import Head from "next/head";
-import { Inter } from "@next/font/google";
-import Header from "components/Header/Header";
-import Hero from "components/Hero/Hero";
-import About from "components/About/About";
-// import Skills from "components/OldSkills/Skills";
-import Projects from "components/Projects/Projects";
-import ContactMe from "components/Contact/ContactMe";
-import Certifications from "components/Certifications/Certifications";
-import axios from "axios";
-import React from "react";
-import SkillsSection from "components/SkillsSection/SkillsSection";
-import Carousel from "components/Carousel/Carousel";
-import { useState, useEffect } from "react";
-import ProjectsMobile from "components/ProjectsMobile/ProjectsMobile";
-// import { InfinitySpin } from "react-loader-spinner";
+import Head from 'next/head';
+import Header from 'components/Header/Header';
+import Hero from 'components/Hero/Hero';
+import About from 'components/About/About';
+import ContactMe from 'components/Contact/ContactMe';
+import Certifications from 'components/Certifications/Certifications';
+import React from 'react';
+import SkillsSection from 'components/SkillsSection/SkillsSection';
+import Carousel from 'components/Carousel/Carousel';
+import { useState, useEffect } from 'react';
+import ProjectsMobile from 'components/ProjectsMobile/ProjectsMobile';
 
-const inter = Inter({ subsets: ["latin"] });
-export async function getStaticProps() {
-  // Get external data from the file system, API, DB, etc.
-  let { data }: any = await axios.get("https://sunilportfolioapi.vercel.app/");
-  // The value of the `props` key will be
-  //  passed to the `Home` component
-  return {
-    props: {
-      data,
-    },
-  };
+export interface ProjectsDataInt {
+  projectDesc: string;
+  projectName: string;
+  projectDuration: string;
+  projectImage: string;
+  projectLink: string;
 }
-type Props = {
-  data: any;
-};
 
-export default function Home(props: Props) {
+export default function Home() {
   const [width, setWidth] = useState(0);
+
+  const projectsData: ProjectsDataInt[] = [
+    {
+      projectDesc: 'This was an amazing project',
+      projectDuration: 'May 2021 - Jun 2023',
+      projectImage: '/',
+      projectLink: '/',
+      projectName: 'Pievu Ieva',
+    },
+    {
+      projectDesc: 'This was an amazing project',
+      projectDuration: 'May 2021 - Jun 2023',
+      projectImage: '/',
+      projectLink: '/',
+      projectName: 'Reminimo galerija',
+    },
+  ];
+
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
+
   return (
-    <div className="
+    <div
+      className="
     bg-black
     
-    text-white h-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll z-0 sm:scrollbar-thin sm:scrollbar-thumb-[#F7AB0A]/80 sm:scrollbar-transparent sm:scrollbar-thumb-rounded-full sm:scrollbar-track-rounded-full">
+    text-white h-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll z-0 sm:scrollbar-thin sm:scrollbar-thumb-[#F5C8D1]/80 sm:scrollbar-transparent sm:scrollbar-thumb-rounded-full sm:scrollbar-track-rounded-full"
+    >
       <Head>
-        <title>{`Sunil Band`}</title>
+        <title>Viktorija</title>
       </Head>
-      {/* Header */}
-      <Header data={props.data[5]} />
-
-      {/* <section id="text">
-  <Test/>
-</section> */}
-
-      {/* Hero */}
+      <Header />
       <section id="hero" className="snap-start">
-        <Hero data={props.data[1]} />
+        <Hero />
       </section>
-
-      {/* About */}
       <section id="about" className="snap-center snap-mandatory  snap-always">
-        <About data={props.data[0]} />
+        <About />
       </section>
-
-      {/* Certifications */}
       <section
         id="certifications"
         className="snap-start snap-mandatory snap-always"
       >
-        <Certifications data={props.data[2]} />
+        <Certifications />
       </section>
-
-      {/* Skills */}
-      {/* <section
-      id="skills"
-      className="snap-start snap-mandatory  snap-always"
-    >
-      <Skills data={props.data[3]} />
-    </section> */}
-
-      {/* Skills new section */}
       <section id="skills" className="snap-start snap-mandatory  snap-always">
-        <SkillsSection data={props.data[3]} />
+        <SkillsSection />
       </section>
-
-      {/* Projects old*/}
-      {/* <section id="projects" className="snap-start snap-mandatory  snap-always">
-        <Projects data={props.data[4]} />
-      </section> */}
-
-      {/* Projects new */}
-      <section id="projects" className="snap-start snap-mandatory  snap-always max-h-screen overflow-clip">
+      <section
+        id="projects"
+        className="snap-start snap-mandatory  snap-always max-h-screen overflow-clip"
+      >
         {width > 768 ? (
-          <Carousel data={props.data[4]} />
+          <Carousel projectsData={projectsData} />
         ) : (
-          <ProjectsMobile data={props.data[4]}/>
+          <ProjectsMobile projectsData={projectsData} />
         )}
-        
       </section>
-
-      {/* Contact Me */}
       <section id="contact" className="snap-start snap-mandatory  snap-always">
         <ContactMe />
       </section>

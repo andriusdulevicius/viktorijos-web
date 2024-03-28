@@ -4,10 +4,10 @@
 
 @layer components {
   .heroButton {
-    @apply px-6 py-2 mx-1 my-1 sm:my-0 border border-[#242424] rounded-full uppercase text-sm tracking-widest text-gray-500 transition-all hover:border hover:border-solid hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
+    @apply px-6 py-2 mx-1 my-1 sm:my-0 border border-[#242424] rounded-full uppercase text-sm tracking-widest text-gray-500 transition-all hover:border hover:border-solid hover:border-[#F5C8D1]/40 hover:text-[#F5C8D1]/40;
   }
   .contactInput {
-    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A] focus:text-[#F7AB0A] hover:border-[#F7AB0A]/40;
+    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#F5C8D1] focus:text-[#F5C8D1] hover:border-[#F5C8D1]/40;
   }
 }
 
@@ -218,7 +218,7 @@ ul {
   flex-wrap: wrap;
 }
 ul:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -240,9 +240,9 @@ li a {
 }
 li h3 {
   font-size: 4rem;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   text-align: center;
-  color: rgb(219, 160, 34);
+  color: #f5c8d1;
 }
 li p {
   font-size: 12px;
